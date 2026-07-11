@@ -1,0 +1,6 @@
+{
+  "name": "Show, Don't Pitch Portfolio",
+  "description": "The elite digital masterpiece agency portfolio for Show, Don't Pitch.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
