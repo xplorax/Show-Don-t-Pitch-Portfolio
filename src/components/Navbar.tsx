@@ -44,8 +44,8 @@ export const Navbar: React.FC = () => {
   return (
     <header
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-        isScrolled
-          ? 'bg-[#faf9f5]/80 backdrop-blur-md border-b border-stone-200/60 shadow-sm py-4'
+        isScrolled || isOpen
+          ? 'bg-[#faf9f5]/95 backdrop-blur-md border-b border-stone-200/60 shadow-sm py-4'
           : 'bg-transparent py-6'
       }`}
     >

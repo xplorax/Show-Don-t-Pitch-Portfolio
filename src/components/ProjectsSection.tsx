@@ -33,10 +33,10 @@ export const ProjectsSection: React.FC = () => {
           </div>
 
           {/* Filter Tabs */}
-          <div className="flex flex-wrap gap-2 bg-stone-100 p-1.5 rounded-full border border-stone-200/60 w-fit">
+          <div className="flex flex-wrap gap-2 bg-stone-100 p-1.5 rounded-2xl sm:rounded-full border border-stone-200/60 w-fit">
             <button
               onClick={() => setActiveFilter('all')}
-              className={`px-5 py-2 rounded-full font-sans text-xs uppercase tracking-wider font-bold transition-all cursor-pointer ${
+              className={`px-5 py-2 rounded-xl sm:rounded-full font-sans text-xs uppercase tracking-wider font-bold transition-all cursor-pointer ${
                 activeFilter === 'all'
                   ? 'bg-emerald-900 text-white shadow-sm'
                   : 'text-emerald-800 hover:text-emerald-950 hover:bg-stone-200/50'
@@ -48,7 +48,7 @@ export const ProjectsSection: React.FC = () => {
               <button
                 key={dept.id}
                 onClick={() => setActiveFilter(dept.id)}
-                className={`px-5 py-2 rounded-full font-sans text-xs uppercase tracking-wider font-bold transition-all cursor-pointer ${
+                className={`px-5 py-2 rounded-xl sm:rounded-full font-sans text-xs uppercase tracking-wider font-bold transition-all cursor-pointer ${
                   activeFilter === dept.id
                     ? 'bg-emerald-900 text-white shadow-sm'
                     : 'text-emerald-800 hover:text-emerald-950 hover:bg-stone-200/50'
