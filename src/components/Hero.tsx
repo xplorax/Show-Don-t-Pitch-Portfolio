@@ -110,7 +110,7 @@ export const Hero: React.FC = () => {
             <div className="absolute inset-0 rounded-3xl border border-gold-500/20 translate-x-3 translate-y-3 pointer-events-none" />
             <div className="w-full h-full rounded-3xl overflow-hidden border border-stone-200/60 bg-stone-100 shadow-xl relative">
               <img
-                src="/src/assets/images/hero_avatar_1783712555189.jpg"
+                src="https://res.cloudinary.com/yxfu3pyp/image/upload/f_auto,q_auto/Muhammad_Luqman_dg7hvu"
                 alt="Creative Director Portrait"
                 referrerPolicy="no-referrer"
                 className="w-full h-full object-cover object-center transform hover:scale-105 transition-transform duration-700"
@@ -123,14 +123,14 @@ export const Hero: React.FC = () => {
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.5, duration: 0.6 }}
-              className="absolute -left-4 sm:-left-8 top-12 bg-white/95 backdrop-blur-md border border-stone-200 rounded-2xl p-3 sm:p-4 shadow-xl flex items-center gap-2 sm:gap-3 w-44 sm:w-52 hover:border-gold-500 transition-colors"
+              className="absolute -left-8 top-12 bg-white/95 backdrop-blur-md border border-stone-200 rounded-2xl p-4 shadow-xl flex items-center gap-3 w-52 hover:border-gold-500 transition-colors"
             >
-              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-gold-100/50 border border-gold-200/50 flex items-center justify-center text-gold-600 shrink-0">
-                <Sparkles size={16} />
+              <div className="w-10 h-10 rounded-xl bg-gold-100/50 border border-gold-200/50 flex items-center justify-center text-gold-600 shrink-0">
+                <Sparkles size={18} />
               </div>
               <div className="flex flex-col">
-                <span className="font-display font-bold text-xs sm:text-sm text-emerald-950 leading-tight">M. A. Luqman</span>
-                <span className="font-sans text-[9px] sm:text-[10px] text-emerald-800/70 leading-none font-bold mt-1">Founder & Expert</span>
+                <span className="font-display font-bold text-sm text-emerald-950 leading-tight">M. A. Luqman</span>
+                <span className="font-sans text-[10px] text-emerald-800/70 leading-none font-bold mt-1">Founder & Expert</span>
               </div>
             </motion.div>
 
@@ -139,14 +139,14 @@ export const Hero: React.FC = () => {
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.7, duration: 0.6 }}
-              className="absolute -right-4 sm:-right-8 bottom-20 bg-white/95 backdrop-blur-md border border-stone-200 rounded-2xl p-3 sm:p-4 shadow-xl flex items-center gap-2 sm:gap-3 w-40 sm:w-48 hover:border-gold-500 transition-colors"
+              className="absolute -right-8 bottom-20 bg-white/95 backdrop-blur-md border border-stone-200 rounded-2xl p-4 shadow-xl flex items-center gap-3 w-48 hover:border-gold-500 transition-colors"
             >
-              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-gold-100/50 border border-gold-200/50 flex items-center justify-center text-gold-600 shrink-0">
-                <Users size={16} />
+              <div className="w-10 h-10 rounded-xl bg-gold-100/50 border border-gold-200/50 flex items-center justify-center text-gold-600 shrink-0">
+                <Users size={18} />
               </div>
               <div className="flex flex-col">
-                <span className="font-display font-bold text-base sm:text-lg text-emerald-950 leading-tight">250+ Clients</span>
-                <span className="font-sans text-[10px] sm:text-[11px] text-emerald-800/60 leading-none font-medium">Globally Empowered</span>
+                <span className="font-display font-bold text-lg text-emerald-950 leading-tight">250+ Clients</span>
+                <span className="font-sans text-[11px] text-emerald-800/60 leading-none font-medium">Globally Empowered</span>
               </div>
             </motion.div>
 
@@ -155,10 +155,10 @@ export const Hero: React.FC = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.9, duration: 0.6 }}
-              className="absolute left-4 sm:left-6 -bottom-6 bg-white/95 backdrop-blur-md border border-stone-200 rounded-2xl px-4 py-3 shadow-xl flex items-center gap-2 hover:border-gold-500 transition-colors"
+              className="absolute left-6 -bottom-6 bg-white/95 backdrop-blur-md border border-stone-200 rounded-2xl px-4 py-3 shadow-xl flex items-center gap-2 hover:border-gold-500 transition-colors"
             >
               <CheckCircle size={14} className="text-gold-600" />
-              <span className="font-mono text-[10px] sm:text-xs text-emerald-900 font-bold uppercase tracking-wider">98% Satisfaction Rating</span>
+              <span className="font-mono text-xs text-emerald-900 font-bold uppercase tracking-wider">98% Satisfaction Rating</span>
             </motion.div>
           </motion.div>
         </div>
@@ -172,7 +172,7 @@ export const Hero: React.FC = () => {
             { value: 'Over $12M', label: 'Verified Partner Pipeline Generated' },
             { value: '21 Days', label: 'Elite Execution Sprint Strategy' },
           ].map((stat, i) => (
-            <div key={i} className="flex flex-col items-center justify-center border-b last:border-b-0 md:border-b-0 md:border-r md:last:border-r-0 border-stone-300/40 pb-6 last:pb-0 md:pb-0 px-4">
+            <div key={i} className="flex flex-col items-center justify-center border-r last:border-r-0 border-stone-300/40 px-4">
               <span className="font-display font-bold text-3xl sm:text-4xl text-emerald-900 tracking-tight mb-1">
                 {stat.value}
               </span>
