@@ -2,9 +2,13 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { MessageCircle, X, Send, Sparkles } from 'lucide-react';
 
+// Easily replace this image link with your custom chat avatar/logo URL
+export const CHAT_LOGO_IMAGE_URL = "https://res.cloudinary.com/yxfu3pyp/image/upload/v1784695066/white-icon_transparent_aw5jcl.png";
+
 export const WhatsAppChat: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [userMessage, setUserMessage] = useState('');
+  const [imgFailed, setImgFailed] = useState(false);
 
   const phoneNumber = '17056259094'; // Show, Don't Pitch WhatsApp
 
@@ -37,9 +41,19 @@ export const WhatsAppChat: React.FC = () => {
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(193,147,36,0.15)_0%,transparent_50%)] pointer-events-none" />
               
               <div className="flex items-center gap-3 relative z-10">
-                <div className="w-10 h-10 rounded-full bg-emerald-900 border border-emerald-800 flex items-center justify-center font-display font-bold text-xs text-gold-300">
-                  SDP
-                </div>
+                {!imgFailed && CHAT_LOGO_IMAGE_URL ? (
+                  <img
+                    src={CHAT_LOGO_IMAGE_URL}
+                    alt="Show Don't Pitch"
+                    referrerPolicy="no-referrer"
+                    onError={() => setImgFailed(true)}
+                    className="w-10 h-10 rounded-full object-contain bg-emerald-900/60 p-1 border border-emerald-800"
+                  />
+                ) : (
+                  <div className="w-10 h-10 rounded-full bg-emerald-900 border border-emerald-800 flex items-center justify-center font-display font-bold text-xs text-gold-300">
+                    SDP
+                  </div>
+                )}
                 <div className="flex flex-col">
                   <span className="font-display font-bold text-sm text-stone-100 tracking-wide leading-tight">
                     Show, Don't Pitch

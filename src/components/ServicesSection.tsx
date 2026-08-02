@@ -51,7 +51,7 @@ export const ServicesSection: React.FC = () => {
           btnHover: 'hover:bg-amber-950',
           badgeLabelBg: 'bg-amber-900 text-amber-200',
         };
-      case 'content-design': // Pillar III - Publishing & Design
+      case 'email-marketing': // Pillar III - Email Marketing
       default:
         return {
           label: 'PILLAR III',
@@ -83,13 +83,13 @@ export const ServicesSection: React.FC = () => {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-20">
           <span className="font-mono text-xs text-emerald-800 uppercase tracking-widest bg-emerald-50/80 px-4 py-1.5 rounded-full border border-emerald-100 font-semibold">
-            Departments & Capabilities
+            Operational Capabilities
           </span>
           <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-emerald-950 tracking-tight mt-4 mb-6">
-            Architected by specialized masters.
+            We engineer systems that convert opportunities into consistent revenue.
           </h2>
-          <p className="font-sans text-emerald-900/70 text-base sm:text-lg font-light leading-relaxed">
-            Our collective is organized into three elite pillars, delivering premium technical executions and creative systems under one uniform brand standard.
+          <p className="font-sans text-emerald-900/70 text-base font-light leading-relaxed">
+            If your strategy is to rely on cheap templates, slow agencies, or unproven assumptions, we are not a fit. If you are ready to identify hidden issues and position your business for sustainable growth, these capabilities are designed for your goals. Slow loading speeds, weak branding structures, and broken funnels destroy your conversion rates. We resolve these bottlenecks through three integrated performance pillars based on real-world customer behavior.
           </p>
         </div>
 

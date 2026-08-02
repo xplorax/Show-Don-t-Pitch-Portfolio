@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Mail, Sparkles, Twitter, Instagram, Linkedin, ArrowRight, MessageCircle } from 'lucide-react';
+import { LOGO_IMAGE_URL } from './Navbar';
 
 export const Footer: React.FC = () => {
+  const [imgFailed, setImgFailed] = useState(false);
   return (
     <footer className="bg-[#faf9f5] border-t border-stone-200 relative pt-16 overflow-hidden">
       {/* Pre-footer Call to Action Banner */}
@@ -13,13 +15,13 @@ export const Footer: React.FC = () => {
 
           <div className="max-w-xl">
             <span className="font-mono text-xs text-emerald-800 uppercase tracking-widest bg-emerald-50 px-3.5 py-1.5 rounded-full border border-emerald-100 w-fit mb-4 inline-block font-bold">
-              SDF SPRINT PROTOCOL
+              SDP SPRINT PROTOCOL
             </span>
             <h3 className="font-display text-3xl sm:text-4xl font-bold text-emerald-950 tracking-tight mb-4">
-              Have a project in mind? <br />Let's craft it in 3 weeks.
+              Secure your 21-day execution sprint.
             </h3>
             <p className="font-sans text-emerald-900/70 text-sm sm:text-base font-light leading-relaxed">
-              Don't waste months dealing with slow agencies. Secure your technical stack, brand identity, and acquisition system under our unified execution frame.
+              Do not waste months dealing with slow, bloated agencies. Secure your custom technical stack, visual brand identity, and tested acquisition systems under our unified execution framework.
             </p>
           </div>
 
@@ -46,17 +48,29 @@ export const Footer: React.FC = () => {
         {/* Column 1: Branding & Blurb */}
         <div className="lg:col-span-4 flex flex-col gap-6">
           <a href="#home" className="flex items-center gap-2 group w-fit">
-            <div className="w-9 h-9 rounded-full bg-emerald-900 flex items-center justify-center text-white font-bold text-sm shadow-sm">
-              SDP
-            </div>
-            <div className="flex flex-col">
-              <span className="font-display font-bold text-emerald-950 tracking-wider text-xs leading-tight">
-                SHOW, DON'T PITCH
-              </span>
-              <span className="font-mono text-[8px] text-gold-600 tracking-widest leading-none font-bold">
-                CREATIVE AGENCY
-              </span>
-            </div>
+            {!imgFailed && LOGO_IMAGE_URL ? (
+              <img
+                src={LOGO_IMAGE_URL}
+                alt="Show Don't Pitch Logo"
+                referrerPolicy="no-referrer"
+                onError={() => setImgFailed(true)}
+                className="h-10 w-auto object-contain group-hover:scale-105 transition-transform"
+              />
+            ) : (
+              <>
+                <div className="w-9 h-9 rounded-full bg-emerald-900 flex items-center justify-center text-white font-bold text-sm shadow-sm">
+                  SDP
+                </div>
+                <div className="flex flex-col">
+                  <span className="font-display font-bold text-emerald-950 tracking-wider text-xs leading-tight">
+                    SHOW, DON'T PITCH
+                  </span>
+                  <span className="font-mono text-[8px] text-gold-600 tracking-widest leading-none font-bold">
+                    CREATIVE AGENCY
+                  </span>
+                </div>
+              </>
+            )}
           </a>
           <p className="font-sans text-emerald-900/70 text-xs sm:text-sm leading-relaxed font-light">
             A boutique, elite creative collective engineering custom web products, strategic advertising funnels, and publisher-grade digital content publications. Established in 2026.

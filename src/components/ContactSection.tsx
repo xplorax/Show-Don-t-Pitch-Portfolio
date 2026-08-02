@@ -29,10 +29,10 @@ export const ContactSection: React.FC = () => {
       'Marketing Strategy Consulting',
       'eBook Marketing & Promotion',
     ],
-    'content-design': [
-      'eBook Creation',
-      'Graphic Design & Identity',
-      'Video Editing & Production',
+    'email-marketing': [
+      'Lifecycle Email Automation',
+      'Campaign Strategy & Copywriting',
+      'VIP Retention & List Optimization',
     ],
     'other': ['Other Operational Inquiry'],
   };
@@ -108,10 +108,10 @@ export const ContactSection: React.FC = () => {
               Establish Connection
             </span>
             <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-emerald-950 tracking-tight mb-6">
-              Let's create a digital masterwork.
+              A structured 21-day sprint to launch your custom storefront.
             </h2>
             <p className="font-sans text-emerald-900/70 text-base font-light leading-relaxed mb-10">
-              Submit your project objectives, and our lead creative director will review your parameters within our 24-hour window to propose an execution pathway.
+              If you are willing to dedicate the attention required to eliminate what is not working and implement what is missing, we are ready to partner with you. If your strategy is to rely on cheap templates or slow agency feedback loops, we are not a fit. Submit your operational objectives below, and our lead architect will review your parameters within our 24-hour window to propose a tested execution pathway.
             </p>
 
             {/* Direct Channels */}
@@ -122,8 +122,8 @@ export const ContactSection: React.FC = () => {
                 </div>
                 <div>
                   <h4 className="font-mono text-[10px] text-gold-600 uppercase tracking-wider leading-none mb-1 font-bold">Direct Inquiries</h4>
-                  <a href="mailto:inquire@showdontpitch.com" className="font-display text-lg text-emerald-950 hover:text-gold-600 transition-colors font-bold">
-                    inquire@showdontpitch.com
+                  <a href="mailto:showdontpitch@gmail.com" className="font-display text-lg text-emerald-950 hover:text-gold-600 transition-colors font-bold">
+                    showdontpitch@gmail.com
                   </a>
                 </div>
               </div>
@@ -188,9 +188,9 @@ export const ContactSection: React.FC = () => {
                   <div className="w-16 h-16 rounded-full bg-emerald-900 flex items-center justify-center text-white shadow-md mb-6">
                     <Check size={32} strokeWidth={2.5} />
                   </div>
-                  <h3 className="font-display font-bold text-2xl text-emerald-950 mb-3">Parameters Received!</h3>
+                  <h3 className="font-display font-bold text-2xl text-emerald-950 mb-3">Parameters received</h3>
                   <p className="font-sans text-emerald-900/70 text-sm leading-relaxed max-w-sm mb-8 font-light">
-                    Our lead creative director has been notified of your project submission and is currently preparing a custom operational roadmap. We will reach out to you within the day.
+                    Our lead architect has received your project parameters and will contact you within 24 hours with a tested execution plan to secure consistent sales.
                   </p>
                   <button
                     onClick={() => setIsSubmitted(false)}
@@ -277,7 +277,7 @@ export const ContactSection: React.FC = () => {
                       >
                         <option value="web-dev">Web Development</option>
                         <option value="digital-marketing">Digital Marketing</option>
-                        <option value="content-design">Content & Design</option>
+                        <option value="email-marketing">Email Marketing</option>
                         <option value="other">Other Operational</option>
                       </select>
                     </div>

@@ -5,7 +5,7 @@ import { PROJECTS, DEPARTMENTS } from '../data';
 import { ProjectItem } from '../types';
 
 export const ProjectsSection: React.FC = () => {
-  const [activeFilter, setActiveFilter] = useState<'all' | 'web-dev' | 'digital-marketing' | 'content-design'>('all');
+  const [activeFilter, setActiveFilter] = useState<'all' | 'web-dev' | 'digital-marketing' | 'email-marketing'>('all');
   const [selectedProject, setSelectedProject] = useState<ProjectItem | null>(null);
 
   const filteredProjects = activeFilter === 'all'
@@ -22,13 +22,13 @@ export const ProjectsSection: React.FC = () => {
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
           <div className="max-w-xl text-left">
             <span className="font-mono text-xs text-emerald-800 uppercase tracking-widest bg-emerald-50/80 px-4 py-1.5 rounded-full border border-emerald-100 font-semibold">
-              Selected Masterworks
+              Selected Case Studies
             </span>
             <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-emerald-950 tracking-tight mt-4 mb-4">
-              Our Case Showcase.
+              Tested implementations that secure consistent sales.
             </h2>
             <p className="font-sans text-emerald-900/70 text-base font-light leading-relaxed">
-              Explores of our recent customer integrations, highlighting rapid execution timelines, beautiful branding structures, and solid ROI conversions.
+              If you are willing to invest in custom engineering, our 21-day sprint is designed for your brand. If your goal is to find superficial shortcuts or generic templates, we are not a fit. Every case study here represents proven, custom solutions that eliminate platform bottlenecks, improve checkout persuasion, and drive consistent revenue. This is real-world performance based on real customer behavior, not marketing assumptions.
             </p>
           </div>
 
@@ -54,7 +54,7 @@ export const ProjectsSection: React.FC = () => {
                     : 'text-emerald-800 hover:text-emerald-950 hover:bg-stone-200/50'
                 }`}
               >
-                {dept.name.split(' ')[0]}
+                {dept.name}
               </button>
             ))}
           </div>
@@ -203,7 +203,7 @@ export const ProjectsSection: React.FC = () => {
                       <span className="text-gold-600">•</span> The Challenge
                     </h5>
                     <p className="font-sans text-emerald-900/70 text-xs leading-relaxed font-light">
-                      The client struggled with heavy template bloat, resulting in high load times, low search rankings, and declining conversion ratios. They needed a secure, custom-branded interface that reflected premium authority.
+                      {selectedProject.challenge || 'The client struggled with heavy template bloat, resulting in high load times, low search rankings, and declining conversion ratios. They needed a secure, custom-branded interface that reflected premium authority.'}
                     </p>
                   </div>
                   <div>
@@ -211,7 +211,7 @@ export const ProjectsSection: React.FC = () => {
                       <span className="text-gold-600">•</span> Our Strategy
                     </h5>
                     <p className="font-sans text-emerald-900/70 text-xs leading-relaxed font-light">
-                      We developed a fully custom responsive storefront using React and Tailwind, decoupling the data store via headless CMS APIs to optimize core Web Vitals.
+                      {selectedProject.strategy || 'We developed a fully custom responsive storefront using React and Tailwind, decoupling the data store via headless CMS APIs to optimize core Web Vitals.'}
                     </p>
                   </div>
                 </div>
@@ -223,12 +223,12 @@ export const ProjectsSection: React.FC = () => {
                     Verified Outcomes & Deliverables
                   </h5>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
-                    {[
+                    {(selectedProject.outcomes || [
                       'Completed full migration within 21 days.',
                       'Aesthetic branding kit and typography pairings applied.',
                       '100% responsive test coverage across devices.',
                       'Full ownership and repository access handed off.',
-                    ].map((item, idx) => (
+                    ]).map((item, idx) => (
                       <div key={idx} className="flex items-center gap-2">
                         <Check size={12} className="text-gold-600 shrink-0" />
                         <span className="font-sans text-xs text-emerald-900/80 font-light">{item}</span>

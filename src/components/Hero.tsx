@@ -30,20 +30,20 @@ export const Hero: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.1 }}
             className="font-display text-4xl sm:text-5xl md:text-6xl font-bold text-emerald-950 tracking-tight leading-none mb-6"
           >
-            We build digital <br />
+            We build digital platforms <br />
+            that capture{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-600 via-gold-500 to-gold-700">
-              masterpieces
-            </span>{' '}
-            for elite brands.
+              consistent sales
+            </span>
           </motion.h1>
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="font-sans text-emerald-900/80 text-lg md:text-xl max-w-xl mb-10 leading-relaxed font-light"
+            className="font-sans text-emerald-900/80 text-base md:text-lg max-w-xl mb-10 leading-relaxed font-light"
           >
-            Show, Don't Pitch is a high-end creative agency founded by elite developer Muhammad A. Luqman, merging expert Shopify & WordPress engineering, high-conversion growth marketing, and bespoke brand publishing.
+            If you are ready to eliminate what is not working, implement what is missing, and position your brand for sustainable growth, our systems are built for you. If your strategy is to rely on cheap templates, slow agencies, or generic tricks, we are not a fit. We deliver practical engineering and tested marketing that resolve hidden issues and convert traffic into consistent revenue.
           </motion.p>
 
           {/* Action Row */}
@@ -64,7 +64,7 @@ export const Hero: React.FC = () => {
               href="#services"
               className="px-8 py-4 rounded-full border border-stone-200 hover:border-emerald-800 bg-stone-100/40 text-emerald-800 hover:text-emerald-950 font-sans font-semibold text-base tracking-wide text-center transition-all duration-200"
             >
-              Explore Departments
+              Explore Services
             </a>
           </motion.div>
 
@@ -168,9 +168,9 @@ export const Hero: React.FC = () => {
       <div className="w-full mt-24 border-y border-stone-200/70 bg-[#f3f2ed]/50 py-10">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
           {[
-            { value: '100% / 100', label: 'Lighthouse PageSpeed Guarantee' },
-            { value: 'Over $12M', label: 'Verified Partner Pipeline Generated' },
-            { value: '21 Days', label: 'Elite Execution Sprint Strategy' },
+            { value: '100/100', label: 'proven speed benchmark, not a target' },
+            { value: 'Over $12M', label: 'partner revenue generated via practical funnels' },
+            { value: '21 Days', label: 'tested sprint to deploy custom storefronts' },
           ].map((stat, i) => (
             <div key={i} className="flex flex-col items-center justify-center border-r last:border-r-0 border-stone-300/40 px-4">
               <span className="font-display font-bold text-3xl sm:text-4xl text-emerald-900 tracking-tight mb-1">

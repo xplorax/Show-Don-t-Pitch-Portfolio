@@ -2,16 +2,23 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Menu, X, Sparkles } from 'lucide-react';
 
+// Easily replace this image link with your custom logo URL
+export const LOGO_IMAGE_URL = "https://res.cloudinary.com/yxfu3pyp/image/upload/v1784692001/logo_transparent_agwdcz.png";
+
 export const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
+  const [imgFailed, setImgFailed] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
 
   const navLinks = [
     { name: 'Home', href: '#home' },
     { name: 'Services', href: '#services' },
     { name: 'Projects', href: '#projects' },
-    { name: 'SDF Guide', href: '#sdf-guide' },
+    { name: 'Our Team', href: '#agency' },
+    { name: 'SDP Guide', href: '#sdf-guide' },
+    { name: 'Testimonials', href: '#testimonials' },
     { name: 'FAQ', href: '#faq' },
     { name: 'Contact', href: '#contact' },
   ];
@@ -19,6 +26,13 @@ export const Navbar: React.FC = () => {
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
+
+      // Compute scroll progress percentage
+      const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+      if (totalHeight > 0) {
+        const progress = (window.scrollY / totalHeight) * 100;
+        setScrollProgress(Math.min(100, Math.max(0, progress)));
+      }
 
       // Simple active link detector
       const sections = navLinks.map(link => link.href.substring(1));
@@ -38,31 +52,53 @@ export const Navbar: React.FC = () => {
     };
 
     window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Initial check on mount
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
-    <header
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-        isScrolled
-          ? 'bg-[#faf9f5]/80 backdrop-blur-md border-b border-stone-200/60 shadow-sm py-4'
-          : 'bg-transparent py-6'
-      }`}
-    >
+    <>
+      {/* Thin Gold Scroll Progress Bar */}
+      <div className="fixed top-0 left-0 w-full h-[3px] z-[60] pointer-events-none bg-stone-300/20">
+        <div
+          className="h-full bg-gradient-to-r from-gold-600 via-gold-400 to-amber-300 shadow-[0_0_8px_rgba(209,168,48,0.6)] transition-all duration-75 ease-out"
+          style={{ width: `${scrollProgress}%` }}
+        />
+      </div>
+
+      <header
+        className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+          isScrolled
+            ? 'bg-[#faf9f5]/80 backdrop-blur-md border-b border-stone-200/60 shadow-sm py-4'
+            : 'bg-transparent py-6'
+        }`}
+      >
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
-        {/* Brand Logo */}
-        <a href="#home" className="flex items-center gap-2 group">
-          <div className="w-10 h-10 rounded-full bg-emerald-900 flex items-center justify-center text-gold-300 font-display font-bold text-sm shadow-sm shadow-emerald-950/10 group-hover:scale-105 transition-transform">
-            SDP
-          </div>
-          <div className="flex flex-col">
-            <span className="font-display font-bold text-emerald-950 tracking-wider text-sm leading-tight">
-              SHOW, DON'T PITCH
-            </span>
-            <span className="font-mono text-[9px] text-gold-600 tracking-widest leading-none font-medium">
-              CREATIVE AGENCY
-            </span>
-          </div>
+        {/* Brand Logo - Replaceable Image */}
+        <a href="#home" className="flex items-center gap-2.5 group">
+          {!imgFailed && LOGO_IMAGE_URL ? (
+            <img
+              src={LOGO_IMAGE_URL}
+              alt="Show Don't Pitch Logo"
+              referrerPolicy="no-referrer"
+              onError={() => setImgFailed(true)}
+              className="h-10 w-auto object-contain group-hover:scale-105 transition-transform"
+            />
+          ) : (
+            <>
+              <div className="w-10 h-10 rounded-full bg-emerald-900 flex items-center justify-center text-gold-300 font-display font-bold text-sm shadow-sm shadow-emerald-950/10 group-hover:scale-105 transition-transform">
+                SDP
+              </div>
+              <div className="flex flex-col">
+                <span className="font-display font-bold text-emerald-950 tracking-wider text-sm leading-tight">
+                  SHOW, DON'T PITCH
+                </span>
+                <span className="font-mono text-[9px] text-gold-600 tracking-widest leading-none font-medium">
+                  CREATIVE AGENCY
+                </span>
+              </div>
+            </>
+          )}
         </a>
 
         {/* Desktop Navigation */}
@@ -137,5 +173,6 @@ export const Navbar: React.FC = () => {
         )}
       </AnimatePresence>
     </header>
+    </>
   );
 };

@@ -27,13 +27,13 @@ export const FaqSection: React.FC = () => {
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-16">
           <span className="font-mono text-xs text-emerald-800 uppercase tracking-widest bg-emerald-50/80 px-4 py-1.5 rounded-full border border-emerald-100 font-semibold">
-            Frequently Answered Concerns
+            Operational Alignment
           </span>
           <h2 className="font-display text-3xl sm:text-4xl font-bold text-emerald-950 tracking-tight mt-4 mb-4">
-            Service Framework FAQs.
+            Clear operational parameters to eliminate project friction.
           </h2>
           <p className="font-sans text-emerald-900/70 text-sm sm:text-base font-light leading-relaxed">
-            Transparent explanations on project parameters, cadence, legal ownership, and revisions to guarantee alignment before launching our sprint.
+            If you are ready to execute our 21-day sprint, we expect absolute alignment. If your goal is to stretch timelines, delay decisions, or request unguided revisions, we are not a fit. These transparent policies are tested across hundreds of live deployments to secure your intellectual property and guarantee rapid execution.
           </p>
         </div>
 
@@ -108,15 +108,15 @@ export const FaqSection: React.FC = () => {
         {/* Call to action footer banner */}
         <div className="mt-16 p-8 rounded-3xl bg-white border border-stone-200 text-center relative overflow-hidden shadow-xs">
           <div className="absolute top-0 right-0 w-24 h-24 bg-gold-200/5 blur-2xl rounded-full" />
-          <h4 className="font-display font-bold text-lg text-emerald-950 mb-2">Have a question not listed here?</h4>
+          <h4 className="font-display font-bold text-lg text-emerald-950 mb-2">Have an operational question not answered here?</h4>
           <p className="font-sans text-emerald-900/70 text-xs sm:text-sm font-light mb-4">
-            Our creative directors are available for custom operational configurations.
+            Our lead architect is available to clarify custom parameters and review your specific requirements.
           </p>
           <a
             href="#contact"
             className="inline-flex items-center gap-1.5 font-mono text-xs text-gold-600 hover:text-gold-700 tracking-wider font-bold uppercase transition-colors"
           >
-            <span>Ask Our Director Directly</span>
+            <span>Contact Our Lead Architect</span>
             <span>→</span>
           </a>
         </div>

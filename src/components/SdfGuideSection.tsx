@@ -19,36 +19,38 @@ import {
   ShieldAlert
 } from 'lucide-react';
 
-// SDF Guide Data
-interface SDFThemeItem {
+// SDP Guide Data
+export const EMBLEM_LOGO_IMAGE_URL = "https://res.cloudinary.com/yxfu3pyp/image/upload/v1784694035/icon_transparent_tk7bty.png";
+
+interface SDPThemeItem {
   id: string;
   title: string;
   subtitle: string;
   description: string;
 }
 
-const SHOPIFY_LEAKS: SDFThemeItem[] = [
+const SHOPIFY_LEAKS: SDPThemeItem[] = [
   {
     id: 'leak-1',
-    title: 'Poor Traffic Targeting',
-    subtitle: 'Wasted Ad Spend',
-    description: 'Driving low-intent, generic cold audiences to an unoptimized site. Running unoptimized traffic results in permanent customer loss and high bounce rates.',
+    title: 'Expecting SEO to Produce Revenue for a New Store',
+    subtitle: 'SEO & Organic Growth',
+    description: 'SEO typically takes 6 to 12 months to drive meaningful traffic to a new store. With no authority, backlinks, or trust signals, it is a long term investment rather than an immediate growth channel.',
   },
   {
     id: 'leak-2',
-    title: 'Lack of Product Page Persuasion',
-    subtitle: 'Friction-Heavy Layouts',
-    description: 'Using plain descriptive headlines instead of outcome-driven benefits, omitting delivery timelines, and failing to handle common checkout anxieties.',
+    title: 'Chasing Followers Instead of Buyers',
+    subtitle: 'Vanity Metrics & Social Media Growth',
+    description: 'Follower count does not drive sales. A small audience with a strong paid strategy can outperform a large following. Followers create visibility, but buyers generate revenue, making sales the metric that matters.',
   },
   {
     id: 'leak-3',
-    title: 'No Follow-Up Retention Systems',
-    subtitle: 'Zero Automated Recoveries',
-    description: 'Failing to establish Klaviyo flow sequences. High-intent buyers add items to their carts and leave, with no browse or checkout recovery triggers.',
+    title: 'Running Ads Before Fixing the Store',
+    subtitle: 'No Conversion Optimization & Paid Advertising',
+    description: 'Ads amplify your store’s existing performance. Driving traffic to a low converting store wastes budget and limits sales. Optimize conversions first, as ads cannot fix a broken store, only magnify its weaknesses.',
   }
 ];
 
-const STRATEGY_HIGHLIGHTS: SDFThemeItem[] = [
+const STRATEGY_HIGHLIGHTS: SDPThemeItem[] = [
   {
     id: 'high-1',
     title: 'Week 1: Fix the Store First',
@@ -110,46 +112,16 @@ export const SdfGuideSection: React.FC = () => {
   const [isSubmittingPayment, setIsSubmittingPayment] = useState(false);
   const [paymentSuccess, setPaymentSuccess] = useState(false);
   const [paymentError, setPaymentError] = useState('');
+  const [emblemFailed, setEmblemFailed] = useState(false);
 
   // Handle Free PDF download
   const downloadFreePdf = () => {
-    const markdownContent = `# SHOW, DON'T PITCH (SDF) BRAND AUTHORITY GUIDE
-## THE SHOPIFY CONVERSION LEAK AUDIT
+    window.open('https://www.mediafire.com/file/d8jpdszmizpada7/What_No_Longer_Works_2026-By_SDP.pdf/file', '_blank', 'noopener,noreferrer');
+  };
 
-### Executive Summary
-New Shopify stores generally fail to generate sales for three reasons:
-1. Poor traffic targeting (driving unqualified users).
-2. A lack of product page persuasion (not explaining the core benefit).
-3. No follow-up system for hesitant buyers (letting high-intent carts slip away).
-
-Running an unoptimized store results in permanent customer loss and wasted ad spend. This audit focuses on fixing the store's "leaks" first, moving from a standard 1.5% conversion rate to an optimized 2.5% rate.
-
-**The SDF ROI Metric:**
-Optimizing your conversion rate from 1.5% to 2.5% yields a 67% increase in revenue from the exact same traffic.
-
----
-
-### What's Dead in 2026 (Common Bottlenecks to Avoid)
-- **Bloated Theme Builders & Heavy Monolith Plugins:** Heavy templates cripple page load times. Slow stores leak 30% of traffic before users even see a product.
-- **Sending Paid Ads Directly to the Homepage:** Homepage traffic suffers from choice-paralysis. High-intent traffic should land directly on dedicated product pages.
-- **Bland Stock Photos & Template-Based Branding:** Consumers can smell generic templated layouts instantly. They expect bespoke visual trust, clear layouts, and high-quality unique assets.
-
----
-
-### Actionable Week 1 Leak Fix Checklist
-* [ ] Implement outcome-driven product page headlines that answer: "What does this do for me?"
-* [ ] Place a clear, explicit objection handling box and refund policy directly beneath the "Add to Cart" button.
-* [ ] Display real-time delivery dates (e.g., "Ships in 1-2 days") transparently on the product page.
-* [ ] Provide 4-6 high-quality images per product, showing the item in real-world contexts.
-* [ ] Enable Shop Pay, Apple Pay, and Google Pay for frictionless, one-tap mobile checkout.
-* [ ] Strip out all unneeded checkout fields.
-* [ ] Add a trust strip near the checkout button.
-
----
-Produced by Show, Don't Pitch Creative Agency © 2026
-SDF - Show, Don't Pitch`;
-
-    triggerDownload('SDF_Shopify_Leak_Audit_Free.md', markdownContent);
+  // Handle Free Conversion Funnel download
+  const downloadFreeFunnelPdf = () => {
+    window.open('https://www.mediafire.com/view/qe8m37nbipe8mi6/Show%252C_Don%2527t_Pitch_-_21_Days_Conversion_Funnel.png/file', '_blank', 'noopener,noreferrer');
   };
 
   // Handle Paid PDF download
@@ -300,37 +272,47 @@ SDF - Show, Don't Pitch`;
             transition={{ duration: 0.8 }}
             className="w-40 h-40 relative rounded-full p-0.5 border border-gold-500/30 bg-emerald-950/5 flex items-center justify-center shadow-lg overflow-hidden group"
           >
-            {/* Dark green background inside */}
-            <div className="absolute inset-1 rounded-full bg-[#052e16] border-2 border-gold-600 flex flex-col items-center justify-center relative p-4">
-              {/* Gold Star */}
-              <div className="absolute top-8 right-10 text-gold-500 text-sm font-bold opacity-90">
-                ★
+            {!emblemFailed && EMBLEM_LOGO_IMAGE_URL ? (
+              <img
+                src={EMBLEM_LOGO_IMAGE_URL}
+                alt="SDP Emblem Logo Graphic"
+                referrerPolicy="no-referrer"
+                onError={() => setEmblemFailed(true)}
+                className="w-full h-full object-contain p-2 group-hover:scale-105 transition-transform"
+              />
+            ) : (
+              /* Dark green background inside */
+              <div className="absolute inset-1 rounded-full bg-[#052e16] border-2 border-gold-600 flex flex-col items-center justify-center relative p-4">
+                {/* Gold Star */}
+                <div className="absolute top-8 right-10 text-gold-500 text-sm font-bold opacity-90">
+                  ★
+                </div>
+                
+                {/* Elegant SDP Letters Monogram */}
+                <div className="relative w-full h-16 flex items-center justify-center select-none">
+                  <span className="font-display text-4xl text-gold-500/30 absolute font-black transform scale-[2.2] translate-x-2 -translate-y-1">D</span>
+                  <span className="font-display text-5xl text-gold-400 font-bold absolute transform -translate-x-3 -translate-y-2">S</span>
+                  <span className="font-display text-4xl text-gold-400 font-bold absolute transform translate-x-4 translate-y-3">P</span>
+                </div>
+                
+                <span className="font-mono text-[6px] text-gold-200 tracking-[0.25em] uppercase font-bold absolute bottom-6 text-center w-full">
+                  SHOW, DON'T PITCH
+                </span>
               </div>
-              
-              {/* Elegant SDP Letters Monogram */}
-              <div className="relative w-full h-16 flex items-center justify-center select-none">
-                <span className="font-display text-4xl text-gold-500/30 absolute font-black transform scale-[2.2] translate-x-2 -translate-y-1">D</span>
-                <span className="font-display text-5xl text-gold-400 font-bold absolute transform -translate-x-3 -translate-y-2">S</span>
-                <span className="font-display text-4xl text-gold-400 font-bold absolute transform translate-x-4 translate-y-3">P</span>
-              </div>
-              
-              <span className="font-mono text-[6px] text-gold-200 tracking-[0.25em] uppercase font-bold absolute bottom-6 text-center w-full">
-                SHOW, DON'T PITCH
-              </span>
-            </div>
+            )}
           </motion.div>
         </div>
 
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-20">
           <span className="font-mono text-xs text-emerald-800 uppercase tracking-widest bg-emerald-50/80 px-4 py-1.5 rounded-full border border-emerald-100 font-bold">
-            Show, Don't Pitch (SDF) Brand Authority Guide
+            Show, Don't Pitch (SDP) Brand Authority Guide
           </span>
           <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-emerald-950 tracking-tight mt-5 mb-6">
-            The SDF Shopify Conversion System
+            The SDP Shopify Conversion System
           </h2>
           <p className="font-sans text-emerald-900/70 text-base sm:text-lg font-light leading-relaxed">
-            In 2026, template bloat and generic AI pitches are dead. We build conversions through deep operational fixes first, high-intent traffic second, and retargeting multipliers third. Optimize your conversions to scale revenue.
+            If you are willing to analyze the raw performance data, we will show you why visitors stop at the cart page, why they leave without checking out, and why certain brands continue to grow while others bleed ad spend. We build conversions through deep technical fixes first, high-intent traffic second, and retargeting multipliers third. This is not generic advice or copy-paste assumptions, but a practical, tested strategy to scale consistent revenue.
           </p>
         </div>
 
@@ -394,19 +376,41 @@ SDF - Show, Don't Pitch`;
             </div>
 
             {/* Action Bar */}
-            <div className="border-t border-stone-200/80 pt-6 mt-4 flex flex-col sm:flex-row items-center justify-between gap-4">
-              <span className="font-mono text-[10px] text-emerald-800 uppercase tracking-widest font-bold">
-                FORMAT: MARKDOWN PDF • FREE
-              </span>
-              <button
-                onClick={() => {
-                  setActiveModal('free');
-                }}
-                className="w-full sm:w-auto px-6 py-3 rounded-full bg-stone-900 hover:bg-black text-white font-sans font-bold text-xs uppercase tracking-wider transition-colors flex items-center justify-center gap-2 cursor-pointer shadow-xs"
-              >
-                <FileText size={14} />
-                <span>Read & Download Audit</span>
-              </button>
+            <div className="border-t border-stone-200/80 pt-6 mt-4 flex flex-col gap-4">
+              <div className="flex items-center justify-between flex-wrap gap-2">
+                <span className="font-mono text-[10px] text-emerald-800 uppercase tracking-widest font-bold">
+                  DIRECT DOWNLOADS &bull; FREE
+                </span>
+                <button
+                  onClick={() => setActiveModal('free')}
+                  className="font-mono text-[10px] text-stone-500 hover:text-stone-900 font-bold tracking-wider uppercase inline-flex items-center gap-1 cursor-pointer underline underline-offset-4"
+                >
+                  <FileText size={11} />
+                  <span>Read Audit in Browser</span>
+                </button>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 w-full">
+                <a
+                  href="https://www.mediafire.com/file/d8jpdszmizpada7/What_No_Longer_Works_2026-By_SDP.pdf/file"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full px-4 py-3 rounded-full bg-stone-900 hover:bg-black text-white font-sans font-bold text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 cursor-pointer shadow-xs border border-stone-800"
+                >
+                  <Download size={14} className="text-gold-400 shrink-0" />
+                  <span className="truncate">Download Free Guide</span>
+                </a>
+
+                <a
+                  href="https://www.mediafire.com/view/qe8m37nbipe8mi6/Show%252C_Don%2527t_Pitch_-_21_Days_Conversion_Funnel.png/file"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full px-4 py-3 rounded-full bg-emerald-900 hover:bg-emerald-950 text-white font-sans font-bold text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 cursor-pointer shadow-xs border border-emerald-800"
+                >
+                  <Download size={14} className="text-gold-400 shrink-0" />
+                  <span className="truncate">Free Conversion Funnel</span>
+                </a>
+              </div>
             </div>
           </motion.div>
 
@@ -471,30 +475,29 @@ SDF - Show, Don't Pitch`;
             <div className="border-t border-stone-200/80 pt-6 mt-4 flex flex-col sm:flex-row items-center justify-between gap-4">
               <span className="font-mono text-[10px] text-gold-600 uppercase tracking-widest font-bold flex items-center gap-1">
                 <Coins size={12} />
-                <span>PRICE: $19 USD • {isUnlocked ? 'PAID & UNLOCKED' : 'ONE-TIME'}</span>
+                <span>PRICE: $25 USD • {isUnlocked ? 'PAID & UNLOCKED' : 'ONE-TIME'}</span>
               </span>
-              <button
-                onClick={() => {
-                  setActiveModal('paid');
-                }}
-                className={`w-full sm:w-auto px-6 py-3 rounded-full font-sans font-bold text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 cursor-pointer shadow-xs ${
-                  isUnlocked 
-                    ? 'bg-emerald-900 hover:bg-emerald-950 text-white' 
-                    : 'bg-gold-500 hover:bg-gold-600 text-stone-950'
-                }`}
-              >
-                {isUnlocked ? (
-                  <>
-                    <ShieldCheck size={14} />
-                    <span>Read Complete Blueprint</span>
-                  </>
-                ) : (
-                  <>
-                    <Lock size={14} />
-                    <span>Unlock Full Blueprint ($19)</span>
-                  </>
-                )}
-              </button>
+              {isUnlocked ? (
+                <button
+                  onClick={() => {
+                    setActiveModal('paid');
+                  }}
+                  className="w-full sm:w-auto px-6 py-3 rounded-full font-sans font-bold text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 cursor-pointer shadow-xs bg-emerald-900 hover:bg-emerald-950 text-white"
+                >
+                  <ShieldCheck size={14} />
+                  <span>Read Complete Blueprint</span>
+                </button>
+              ) : (
+                <a
+                  href="https://selar.com/q556s51551"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full sm:w-auto px-6 py-3 rounded-full font-sans font-bold text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 cursor-pointer shadow-xs bg-gold-500 hover:bg-gold-600 text-stone-950"
+                >
+                  <Lock size={14} />
+                  <span>Unlock Full Blueprint ($25)</span>
+                </a>
+              )}
             </div>
           </motion.div>
 
@@ -507,7 +510,7 @@ SDF - Show, Don't Pitch`;
               The 21-Day Scaling Pathway
             </span>
             <h3 className="font-display text-3xl font-bold text-emerald-950 tracking-tight">
-              SDF Implementation Protocol
+              SDP Implementation Protocol
             </h3>
             <p className="font-sans text-emerald-900/70 text-sm font-light mt-3 leading-relaxed">
               We compress months of agency friction into a sequential, high-speed 21-day execution workflow.
@@ -577,11 +580,11 @@ SDF - Show, Don't Pitch`;
               <div className="p-5 border-b border-stone-100 flex items-center justify-between bg-stone-50 shrink-0">
                 <div className="flex items-center gap-3">
                   <div className="w-8 h-8 rounded-full bg-emerald-900 text-white flex items-center justify-center font-bold text-xs">
-                    SDF
+                    SDP
                   </div>
                   <div>
                     <h3 className="font-display font-bold text-sm sm:text-base text-emerald-950">
-                      SDF Brand Authority Library
+                      SDP Brand Authority Library
                     </h3>
                     <p className="font-sans text-[10px] text-emerald-900/50 uppercase tracking-wider font-semibold">
                       Official Show, Don't Pitch Publisher Portal
@@ -634,10 +637,10 @@ SDF - Show, Don't Pitch`;
                           1. Executive Summary
                         </h3>
                         <p className="text-xs sm:text-sm text-stone-600 font-light">
-                          New Shopify stores generally fail to generate sales for three reasons: <strong>poor traffic targeting</strong>, <strong>a lack of product page persuasion</strong>, and <strong>no follow-up system</strong> for hesitant buyers. Running an unoptimized store results in permanent customer loss and wasted advertising budgets.
+                          Most Shopify stores do not struggle because of a <strong>lack of traffic</strong>. They struggle because visitors arrive at a store that is not prepared to convert them. Advertising amplifies whatever already exists. If <strong>the storefront leaks trust, clarity, or purchase intent,</strong> more traffic simply means more lost revenue.
                         </p>
                         <p className="text-xs sm:text-sm text-stone-600 font-light mt-3">
-                          This 21-day strategy fixes the storefront leaks first, introduces qualified buyer traffic second, and compounds the resulting metrics third. Moving from a standard 1.5% conversion rate to an optimized 2.5% rate yields a <strong>67% increase in revenue</strong> from the exact same traffic level.
+                          This 21 day conversion audit focuses on fixing the highest impact revenue leaks first. <strong>Product page persuasion, trust signals, checkout efficiency, and visitor recovery systems</strong> are strengthened before additional traffic is introduced. The result is a store that generates more revenue from the same number of visitors while creating a stronger foundation for future growth.
                         </p>
                       </section>
 
@@ -647,13 +650,13 @@ SDF - Show, Don't Pitch`;
                         </h3>
                         <ul className="list-disc pl-5 space-y-2 text-xs sm:text-sm text-stone-600 font-light">
                           <li>
-                            <strong className="text-emerald-950 font-bold">Bloated themes and heavy layout plugins:</strong> Heavy monolithic themes drag site performance down to 30-40 Lighthouse scoring, causing visitors to bounce instantly before they read the value.
+                            <strong className="text-emerald-950 font-bold">Running Traffic Before Store Optimization:</strong> More traffic will not fix a store that struggles to convert.
                           </li>
                           <li>
-                            <strong className="text-emerald-950 font-bold">Ad campaigns hitting homepages directly:</strong> Homepages trigger choice-paralysis. High-intent traffic should land straight on dedicated, persuasive product pages.
+                            <strong className="text-emerald-950 font-bold">Sending Ad Traffic to the Homepage:</strong> High intent visitors should land directly on the product page, not navigate through the store.
                           </li>
                           <li>
-                            <strong className="text-emerald-950 font-bold">Bland, flat, stock imagery structures:</strong> Customers expect raw, authentic visual proofs. Simple standard catalog photos look empty and break consumer authority trust.
+                            <strong className="text-emerald-950 font-bold">Feature Heavy Product Pages:</strong> Buyers care about outcomes, benefits, and trust, not long lists of specifications.
                           </li>
                         </ul>
                       </section>
@@ -677,7 +680,7 @@ SDF - Show, Don't Pitch`;
                           </div>
                           <div className="flex gap-2.5 items-start">
                             <span className="text-emerald-800 shrink-0 font-bold mt-0.5 font-mono">✓</span>
-                            <span><strong>Checkout Minimalism:</strong> Delete any redundant form collections to reduce checkout abandonment.</span>
+                            <span><strong>Align Ads With Landing Pages:</strong> Ensure every advertisement sends visitors directly to the exact product page featured in the ad.</span>
                           </div>
                         </div>
                       </section>
@@ -687,15 +690,15 @@ SDF - Show, Don't Pitch`;
                       <p className="font-sans text-[10px] text-stone-400 uppercase font-bold tracking-widest mb-4">
                         Want the full 21-day timeline execution?
                       </p>
-                      <button
-                        onClick={() => {
-                          setActiveModal('paid');
-                        }}
+                      <a
+                        href="https://selar.com/q556s51551"
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="px-6 py-2.5 rounded-full bg-gold-500 hover:bg-gold-600 text-stone-950 font-sans font-bold text-xs uppercase tracking-wider transition-colors cursor-pointer inline-flex items-center gap-1.5 shadow-sm"
                       >
                         <Lock size={12} />
-                        <span>Unlock Full 21-Day Blueprint ($19)</span>
-                      </button>
+                        <span>Unlock Full 21-Day Blueprint ($25)</span>
+                      </a>
                     </div>
                   </div>
                 )}
@@ -719,7 +722,7 @@ SDF - Show, Don't Pitch`;
                           </p>
                           
                           <div className="mt-4 px-4 py-1.5 bg-emerald-50 border border-emerald-100 rounded-full font-mono text-[10px] text-emerald-800 font-bold uppercase tracking-widest">
-                            Price: $19.00 USD
+                            Price: $25.00 USD
                           </div>
                         </div>
 
@@ -829,7 +832,7 @@ SDF - Show, Don't Pitch`;
                             ) : (
                               <>
                                 <CreditCard size={13} />
-                                <span>Unlock Master Blueprint ($19)</span>
+                                <span>Unlock Master Blueprint ($25)</span>
                               </>
                             )}
                           </button>

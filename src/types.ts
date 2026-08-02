@@ -1,4 +1,4 @@
-export type DepartmentId = 'web-dev' | 'digital-marketing' | 'content-design';
+export type DepartmentId = 'web-dev' | 'digital-marketing' | 'email-marketing';
 
 export interface Department {
   id: DepartmentId;
@@ -26,6 +26,9 @@ export interface ProjectItem {
   image: string;
   linkText: string;
   stats?: { label: string; value: string }[];
+  challenge?: string;
+  strategy?: string;
+  outcomes?: string[];
 }
 
 export interface FAQItem {
@@ -35,7 +38,20 @@ export interface FAQItem {
   answer: string;
 }
 
-export interface SDFGuideItem {
+export interface TestimonialItem {
+  id: string;
+  clientName: string;
+  clientRole: string;
+  company: string;
+  departmentId: DepartmentId;
+  quote: string;
+  metric?: { value: string; label: string };
+  rating: number;
+  avatarUrl?: string;
+  projectTitle?: string;
+}
+
+export interface SDPGuideItem {
   id: string;
   type: 'dead' | 'works';
   title: string;
@@ -58,4 +74,19 @@ export interface ContactFormData {
   department: DepartmentId | 'other';
   message: string;
   serviceInterest: string;
+}
+
+export interface TeamMember {
+  id: string;
+  name: string;
+  role: string;
+  bio: string;
+  avatarUrl: string;
+  specialization: string;
+  socials?: {
+    linkedin?: string;
+    twitter?: string;
+    github?: string;
+    email?: string;
+  };
 }
