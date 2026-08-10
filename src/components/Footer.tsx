@@ -169,7 +169,7 @@ export const Footer: React.FC = () => {
       {/* Footer Bottom copyright and legal */}
       <div className="max-w-7xl mx-auto px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-emerald-900/50 relative z-10 text-left font-medium">
         <span>
-          © 2026 Show, Don't Pitch. All rights reserved.
+          © 2024 Show, Don't Pitch. All rights reserved.
         </span>
         <div className="flex items-center gap-6">
           <a href="#" className="hover:text-gold-600 transition-colors">Privacy Policy</a>
@@ -177,7 +177,7 @@ export const Footer: React.FC = () => {
           <span className="text-stone-300">|</span>
           <span className="flex items-center gap-1">
             <Sparkles size={10} className="text-gold-600" />
-            <span>SDF 2026</span>
+            <span>SDP 2026</span>
           </span>
         </div>
       </div>
