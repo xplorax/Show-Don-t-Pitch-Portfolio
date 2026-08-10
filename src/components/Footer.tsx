@@ -73,7 +73,7 @@ export const Footer: React.FC = () => {
             )}
           </a>
           <p className="font-sans text-emerald-900/70 text-xs sm:text-sm leading-relaxed font-light">
-            A boutique, elite creative collective engineering custom web products, strategic advertising funnels, and publisher-grade digital content publications. Established in 2026.
+            A boutique, elite creative collective engineering custom web products, strategic advertising funnels, and publisher-grade digital content publications. Established in 2024.
           </p>
           <div className="flex items-center gap-3 mt-2">
             {[
@@ -106,7 +106,7 @@ export const Footer: React.FC = () => {
               { name: 'Home', href: '#home' },
               { name: 'Services', href: '#services' },
               { name: 'Projects', href: '#projects' },
-              { name: 'SDF Guide', href: '#sdf-guide' },
+              { name: 'SDP Guide', href: '#sdf-guide' },
               { name: 'FAQ', href: '#faq' },
               { name: 'Contact', href: '#contact' },
             ].map((link) => (
@@ -177,7 +177,7 @@ export const Footer: React.FC = () => {
           <span className="text-stone-300">|</span>
           <span className="flex items-center gap-1">
             <Sparkles size={10} className="text-gold-600" />
-            <span>SDP 2026</span>
+            <span>SDP 2024</span>
           </span>
         </div>
       </div>
